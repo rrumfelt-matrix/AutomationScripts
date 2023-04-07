@@ -1,10 +1,10 @@
-dnf check-update
-dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
-dnf update
-dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-systemctl start docker
-systemctl enable docker
-usermod -aG docker $(whoami)
+sudo yum update -y
+sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf update
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $(whoami)
 echo "version: "2.1"
 services:
   unifi-controller:
@@ -29,4 +29,4 @@ services:
       - 6789:6789 #optional
       - 5514:5514/udp #optional
     restart: unless-stopped" >> docker-compose.yml
-    docker compose up -d
+docker compose up -d
