@@ -1,6 +1,6 @@
-yum update -y
 dnf check-update
-dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+dnf update
 dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 systemctl start docker
 systemctl enable docker
