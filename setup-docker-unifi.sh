@@ -5,7 +5,7 @@ sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo usermod -aG docker $(whoami)
-echo "version: "2.1"
+echo 'version: "2.1"
 services:
   unifi-controller:
     image: lscr.io/linuxserver/unifi-controller:latest
@@ -28,5 +28,5 @@ services:
       - 8880:8880 #optional
       - 6789:6789 #optional
       - 5514:5514/udp #optional
-    restart: unless-stopped" >> docker-compose.yml
+    restart: unless-stopped' >> docker-compose.yml
 docker compose up -d
